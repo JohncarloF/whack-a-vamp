@@ -95,10 +95,9 @@ function chooseHole(holes) {
 function gameOver() {
   //TODO write code here.
   clearInterval(timer); // Stop the timer
-  moles.forEach((mole) => mole.removeEventListener('click', whack)); // Remove click listeners
+  moles.forEach((mole) => mole.removeEventListener("click", whack)); // Remove click listeners
   return "game stopped";
 }
-
 
 /**
  *
@@ -124,19 +123,13 @@ function showUp() {
  *
  */
 function showAndHide(hole, delay) {
-  // TODO: call the toggleVisibility function so that it adds the 'show' class.
-
+  toggleVisibility(hole); // Show the mole by toggling the 'show' class
   const timeoutID = setTimeout(() => {
-    // TODO: call the toggleVisibility function so that it removes the 'show' class when the timer times out.
-toggleVisibility(hole);
-const timeoutID(hole);
-function gameOver() {
-  clearInterval(timer); // Stop the timer
-  moles.forEach((mole) => mole.removeEventListener('click', whack)); // Remove click listeners
-  return "game stopped";
-}
-
-  }, delay); // TODO: change the setTimeout delay to the one provided as a parameter
+    toggleVisibility(hole); // Hide the mole after the delay
+    if (time <= 0) {
+      gameOver(); // Stop the game if the timer has expired
+    }
+  }, delay); // Use the delay provided
   return timeoutID;
 }
 
@@ -178,7 +171,7 @@ function updateScore() {
 function clearScore() {
   // TODO: Write your code here
   points = 0;
-   score.textContent = points;
+  score.textContent = points;
   return points;
 }
 
@@ -208,7 +201,7 @@ function updateTimer() {
  */
 function startTimer() {
   // TODO: Write your code here
-   timer = setInterval(updateTimer, 1000);
+  timer = setInterval(updateTimer, 1000);
   return timer;
 }
 
@@ -223,8 +216,8 @@ function startTimer() {
 function whack(event) {
   // TODO: Write your code here.
   if (event.target.classList.contains("mole")) {
-  updateScore();
-}
+    updateScore();
+  }
   return points;
 }
 
@@ -235,7 +228,7 @@ function whack(event) {
  */
 function setEventListeners() {
   // TODO: Write your code here
-  moles.forEach((mole) => mole.addEventListener('click', whack));
+  moles.forEach((mole) => mole.addEventListener("click", whack));
   return moles;
 }
 
