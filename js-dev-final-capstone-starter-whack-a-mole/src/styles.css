@@ -35,10 +35,10 @@ h2 {
 }
 
 .grid {
-  width: 600px;
-  height: 400px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  width: 600px;
   margin: 0 auto;
   cursor: url('./assets/mallet.png'), pointer;
 }
