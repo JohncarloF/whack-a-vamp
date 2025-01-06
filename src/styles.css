@@ -1,8 +1,12 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  background: url('../assets/background.png') no-repeat center center fixed;
+  background: url("../assets/background.png") no-repeat center center fixed;
   background-size: cover;
+}
+/* Add this to your styles.css */
+body {
+  cursor: url("../assets/mallet.png"), auto; /* Ensure the path to the cursor image is correct */
 }
 
 .grid {
@@ -18,7 +22,7 @@ body {
   position: relative;
   width: 100px;
   height: 100px;
-  background: url('../assets/hole.png') no-repeat center center;
+  background: url("../assets/hole.png") no-repeat center center;
   background-size: cover;
 }
 
@@ -34,19 +38,19 @@ body {
 }
 
 .vamp1 {
-  background: url('../assets/vamp1.png') no-repeat center center;
+  background: url("../assets/vamp1.png") no-repeat center center;
 }
 
 .vamp2 {
-  background: url('../assets/vamp2.png') no-repeat center center;
+  background: url("../assets/vamp2.png") no-repeat center center;
 }
 
 .vamp3 {
-  background: url('../assets/vamp3.png') no-repeat center center;
+  background: url("../assets/vamp3.png") no-repeat center center;
 }
 
 .vamp4 {
-  background: url('../assets/vamp4.png') no-repeat center center;
+  background: url("../assets/vamp4.png") no-repeat center center;
 }
 
 .show .vamp {

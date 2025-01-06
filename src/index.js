@@ -22,6 +22,9 @@ let difficulty = "hard";
  * will return a random integer between 10 and 200.
  *
  */
+const whackSound = new Audio("./assets/whack.mp3");
+const gameStartSound = new Audio("./assets/start.mp3");
+
 function randomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -42,10 +45,9 @@ function randomInteger(min, max) {
  *
  */
 function setDelay(difficulty) {
-  //TODO: Write your code here.
-  if (difficulty === "easy") return 1500;
-  if (difficulty === "normal") return 1000;
-  return randomInteger(600, 1200); // For "hard"
+  if (difficulty === "easy") return 1000; // Reduced delay for easy
+  if (difficulty === "normal") return 800; // Faster for normal
+  return randomInteger(400, 600); // Even faster for hard
 }
 
 /**
@@ -111,9 +113,12 @@ function gameOver() {
  * to call `showAndHide(hole, delay)`.
  *
  */
+let initialDelay = 1000; // Starting delay
+let speedIncrease = 50; // Speed increase factor
+
 function showUp() {
-  const delay = setDelay(difficulty); // TODO: Update so that it uses setDelay()
-  const hole = chooseHole(holes); // TODO: Update so that it use chooseHole()
+  const delay = Math.max(initialDelay - (100 - time) * speedIncrease, 300); // Minimum delay is 300ms
+  const hole = chooseHole(holes);
   return showAndHide(hole, delay);
 }
 
@@ -220,6 +225,7 @@ function whack(event) {
   // TODO: Write your code here.
   if (event.target.classList.contains("vamp")) {
     updateScore();
+    whackSound.play(); //play whack sound
   }
   return points;
 }
@@ -275,11 +281,14 @@ function stopGame() {
  * Note: Simply uncommenting `setDuration(10);` and `showUp();` is not enough. To make the game work, ensure all necessary functions listed above are called to initialize the score, timer, event listeners, and mole appearances.
 */
 function startGame() {
+  console.log("Game started!");
+
   clearScore();
   setDuration(100);
   setEventListeners();
   startTimer();
   showUp();
+  gameStartSound.play();
   return "game started";
 }
 
