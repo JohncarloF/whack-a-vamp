@@ -1,9 +1,9 @@
 const holes = document.querySelectorAll(".hole");
 const vamps = document.querySelectorAll(".vamp");
 const startButton = document.querySelector("#start");
-// TODO: Add the missing query selectors:
 const score = document.querySelector("#score");
 const timerDisplay = document.querySelector("#timer");
+
 // Use querySelector() to get the score element
 // use querySelector() to get the timer element.
 
@@ -42,7 +42,7 @@ function randomInteger(min, max) {
  *
  */
 function setDelay(difficulty) {
-  // TODO: Write your code here.
+  //TODO: Write your code here.
   if (difficulty === "easy") return 1500;
   if (difficulty === "normal") return 1000;
   return randomInteger(600, 1200); // For "hard"
@@ -63,8 +63,8 @@ function setDelay(difficulty) {
  * chooseHole(holes) //> returns one of the 9 holes that you defined
  */
 function chooseHole(holes) {
-  // TODO: Write your code here.
   let index;
+  //TODO: Write your code here.
   do {
     index = randomInteger(0, holes.length - 1);
   } while (holes[index] === lastHole);
@@ -159,11 +159,11 @@ function toggleVisibility(hole) {
  *
  */
 function updateScore() {
-  // TODO: Write your code here
   points += 1;
   score.textContent = points;
   return points;
 }
+
 /**
  *
  * This function clears the score by setting `points = 0`. It also updates
@@ -203,7 +203,7 @@ function updateTimer() {
  *
  */
 function startTimer() {
-  // TODO: Write your code here
+  //TODO: Write your codehere.
   timer = setInterval(updateTimer, 1000);
   return timer;
 }
@@ -276,7 +276,6 @@ function stopGame() {
 */
 function startGame() {
   clearScore();
-  //stopGame();   //optional
   setDuration(10);
   setEventListeners();
   startTimer();
