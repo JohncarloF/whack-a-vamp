@@ -275,17 +275,11 @@ function stopGame() {
  * Note: Simply uncommenting `setDuration(10);` and `showUp();` is not enough. To make the game work, ensure all necessary functions listed above are called to initialize the score, timer, event listeners, and mole appearances.
 */
 function startGame() {
-  console.log("Game started");
   clearScore();
-  console.log("Score cleared");
   setDuration(10);
-  console.log("Duration set");
   setEventListeners();
-  console.log("Event listeners set");
   startTimer();
-  console.log("Timer started");
   showUp();
-  console.log("Show up called");
   return "game started";
 }
 
