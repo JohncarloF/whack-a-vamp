@@ -1,5 +1,5 @@
 const holes = document.querySelectorAll(".hole");
-const moles = document.querySelectorAll(".mole");
+const vamps = document.querySelectorAll(".vamp");
 const startButton = document.querySelector("#start");
 // TODO: Add the missing query selectors:
 const score = document.querySelector("#score");
@@ -93,10 +93,13 @@ function chooseHole(holes) {
  *
  */
 function gameOver() {
-  //TODO write code here.
-  clearInterval(timer); // Stop the timer
-  moles.forEach((mole) => mole.removeEventListener("click", whack)); // Remove click listeners
-  return "game stopped";
+  if (time > 0) {
+    const timeoutId = showUp();
+    return timeoutId;
+  } else {
+    const gameStopped = stopGame();
+    return gameStopped;
+  }
 }
 
 /**
@@ -157,10 +160,10 @@ function toggleVisibility(hole) {
  */
 function updateScore() {
   // TODO: Write your code here
+  points += 1;
   score.textContent = points;
   return points;
 }
-
 /**
  *
  * This function clears the score by setting `points = 0`. It also updates
@@ -292,7 +295,7 @@ window.startGame = startGame;
 window.gameOver = gameOver;
 window.showUp = showUp;
 window.holes = holes;
-window.moles = moles;
+window.vamps = vamps;
 window.showAndHide = showAndHide;
 window.points = points;
 window.updateScore = updateScore;
