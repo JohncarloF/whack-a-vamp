@@ -127,7 +127,7 @@ function showAndHide(hole, delay) {
 toggleVisibility(hole);
 const timeoutID(hole);
     gameOver();
-  }, 0); // TODO: change the setTimeout delay to the one provided as a parameter
+  }, delay); // TODO: change the setTimeout delay to the one provided as a parameter
   return timeoutID;
 }
 
@@ -139,7 +139,7 @@ const timeoutID(hole);
  */
 function toggleVisibility(hole) {
   // TODO: add hole.classList.toggle so that it adds or removes the 'show' class.
-
+  hole.toggleVisibility("show");
   return hole;
 }
 
@@ -155,7 +155,7 @@ function toggleVisibility(hole) {
  */
 function updateScore() {
   // TODO: Write your code here
-
+  score.textContent = points;
   return points;
 }
 
@@ -168,8 +168,8 @@ function updateScore() {
  */
 function clearScore() {
   // TODO: Write your code here
-  // points = 0;
-  // score.textContent = points;
+  points = 0;
+   score.textContent = points;
   return points;
 }
 
@@ -181,7 +181,13 @@ function clearScore() {
 function updateTimer() {
   // TODO: Write your code here.
   // hint: this code is provided to you in the instructions.
-
+  if (time > 0) {
+    time--;
+    timerDisplay.textContent = time;
+  } else {
+    clearInterval(timer);
+    stopGame();
+  }
   return time;
 }
 
@@ -193,7 +199,7 @@ function updateTimer() {
  */
 function startTimer() {
   // TODO: Write your code here
-  // timer = setInterval(updateTimer, 1000);
+   timer = setInterval(updateTimer, 1000);
   return timer;
 }
 
@@ -207,7 +213,9 @@ function startTimer() {
  */
 function whack(event) {
   // TODO: Write your code here.
-  // call updateScore()
+  if (event.target.classList.contains("mole")) {
+  updateScore();
+}
   return points;
 }
 
@@ -218,7 +226,7 @@ function whack(event) {
  */
 function setEventListeners() {
   // TODO: Write your code here
-
+  moles.forEach((mole) => mole.addEventListener('click', whack));
   return moles;
 }
 
@@ -262,12 +270,12 @@ function stopGame() {
  * Note: Simply uncommenting `setDuration(10);` and `showUp();` is not enough. To make the game work, ensure all necessary functions listed above are called to initialize the score, timer, event listeners, and mole appearances.
 */
 function startGame() {
-  //clearScore();
+  clearScore();
   //stopGame();   //optional
-  //setDuration(10);
-  //setEventListeners();
-  //startTimer();
-  //showUp();
+  setDuration(10);
+  setEventListeners();
+  startTimer();
+  showUp();
   return "game started";
 }
 
