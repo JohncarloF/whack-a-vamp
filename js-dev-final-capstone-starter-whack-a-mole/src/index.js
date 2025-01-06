@@ -93,8 +93,12 @@ function chooseHole(holes) {
  *
  */
 function gameOver() {
-  // TODO: Write your code here
+  //TODO write code here.
+  clearInterval(timer); // Stop the timer
+  moles.forEach((mole) => mole.removeEventListener('click', whack)); // Remove click listeners
+  return "game stopped";
 }
+
 
 /**
  *
@@ -126,7 +130,12 @@ function showAndHide(hole, delay) {
     // TODO: call the toggleVisibility function so that it removes the 'show' class when the timer times out.
 toggleVisibility(hole);
 const timeoutID(hole);
-    gameOver();
+function gameOver() {
+  clearInterval(timer); // Stop the timer
+  moles.forEach((mole) => mole.removeEventListener('click', whack)); // Remove click listeners
+  return "game stopped";
+}
+
   }, delay); // TODO: change the setTimeout delay to the one provided as a parameter
   return timeoutID;
 }
@@ -139,7 +148,7 @@ const timeoutID(hole);
  */
 function toggleVisibility(hole) {
   // TODO: add hole.classList.toggle so that it adds or removes the 'show' class.
-  hole.toggleVisibility("show");
+  hole.classList.toggle("show");
   return hole;
 }
 
