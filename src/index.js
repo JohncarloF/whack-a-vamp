@@ -284,7 +284,7 @@ function startGame() {
   console.log("Game started!");
 
   clearScore();
-  setDuration(100);
+  setDuration(30);
   setEventListeners();
   startTimer();
   showUp();
