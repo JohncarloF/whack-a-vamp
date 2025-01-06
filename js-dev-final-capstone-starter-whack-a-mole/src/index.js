@@ -215,7 +215,7 @@ function startTimer() {
  */
 function whack(event) {
   // TODO: Write your code here.
-  if (event.target.classList.contains("mole")) {
+  if (event.target.classList.contains("vamp")) {
     updateScore();
   }
   return points;
@@ -228,8 +228,8 @@ function whack(event) {
  */
 function setEventListeners() {
   // TODO: Write your code here
-  moles.forEach((mole) => mole.addEventListener("click", whack));
-  return moles;
+  vamps.forEach((vamp) => vamp.addEventListener("click", whack));
+  return vamps;
 }
 
 /**
