@@ -96,10 +96,8 @@ function chooseHole(holes) {
  */
 function gameOver() {
   if (time > 0) {
-    const timeoutId = showUp();
     return timeoutId;
   } else {
-    const gameStopped = stopGame();
     return gameStopped;
   }
 }
