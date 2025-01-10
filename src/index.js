@@ -45,9 +45,9 @@ function randomInteger(min, max) {
  *
  */
 function setDelay(difficulty) {
-  if (difficulty === "easy") return 1000; // Reduced delay for easy
-  if (difficulty === "normal") return 800; // Faster for normal
-  return randomInteger(400, 600); // Even faster for hard
+  if (difficulty === "easy") return 1500; // Reduced delay for easy
+  if (difficulty === "normal") return 1000; // Faster for normal
+  return randomInteger(600, 1200); // Even faster for hard
 }
 
 /**
@@ -117,7 +117,7 @@ let initialDelay = 1500; // Starting delay
 let speedIncrease = 20; // Speed increase factor
 
 function showUp() {
-  const delay = Math.max(initialDelay - (100 - time) * speedIncrease, 600); // Minimum delay is 300ms
+  const delay = setDelay(difficulty);
   const hole = chooseHole(holes);
   return showAndHide(hole, delay);
 }
@@ -134,11 +134,7 @@ function showAndHide(hole, delay) {
   toggleVisibility(hole); // Show the mole by toggling the 'show' class
   const timeoutID = setTimeout(() => {
     toggleVisibility(hole); // Hide the mole after the delay
-    if (time > 0) {
-      showUp();
-    } else {
-      gameOver(); // Stop the game if the timer has expired
-    }
+    gameOver(); // Stop the game if the timer has expired
   }, delay); // Use the delay provided
   return timeoutID();
 }
