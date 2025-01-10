@@ -113,8 +113,8 @@ function gameOver() {
  * to call `showAndHide(hole, delay)`.
  *
  */
-let initialDelay = 1000; // Starting delay
-let speedIncrease = 50; // Speed increase factor
+let initialDelay = 1500; // Starting delay
+let speedIncrease = 20; // Speed increase factor
 
 function showUp() {
   const delay = Math.max(initialDelay - (100 - time) * speedIncrease, 600); // Minimum delay is 300ms
