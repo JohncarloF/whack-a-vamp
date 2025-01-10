@@ -37,15 +37,6 @@ h2 {
   background: url("../assets/hole.png") no-repeat center center;
   background-size: cover;
 }
-#start {
-  margin-top: 20px;
-}
-
-#score,
-#timer {
-  margin-top: 10px;
-  font-size: 24px;
-}
 
 #mallet {
   width: 50px;
