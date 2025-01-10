@@ -117,7 +117,7 @@ let initialDelay = 1000; // Starting delay
 let speedIncrease = 50; // Speed increase factor
 
 function showUp() {
-  const delay = Math.max(initialDelay - (100 - time) * speedIncrease, 500); // Minimum delay is 300ms
+  const delay = Math.max(initialDelay - (100 - time) * speedIncrease, 10); // Minimum delay is 300ms
   const hole = chooseHole(holes);
   return showAndHide(hole, delay);
 }
