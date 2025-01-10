@@ -96,8 +96,10 @@ function chooseHole(holes) {
  */
 function gameOver() {
   if (time > 0) {
+    const timeoutID = showUp();
     return timeoutId;
   } else {
+    const gameStopped = stopGame();
     return gameStopped;
   }
 }
@@ -132,11 +134,13 @@ function showAndHide(hole, delay) {
   toggleVisibility(hole); // Show the mole by toggling the 'show' class
   const timeoutID = setTimeout(() => {
     toggleVisibility(hole); // Hide the mole after the delay
-    if (time <= 0) {
+    if (time > 0) {
+      showUp();
+    } else {
       gameOver(); // Stop the game if the timer has expired
     }
   }, delay); // Use the delay provided
-  return timeoutID;
+  return timeoutID();
 }
 
 /**
