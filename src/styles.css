@@ -37,6 +37,14 @@ h2 {
   background: url("../assets/hole.png") no-repeat center center;
   background-size: cover;
 }
+#start {
+  text-align: center;
+  font-size: 30px;
+}
+
+#timer {
+  color: white;
+}
 
 #mallet {
   width: 50px;
