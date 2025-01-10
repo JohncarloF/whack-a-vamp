@@ -287,6 +287,7 @@ function startGame() {
   startTimer();
   showUp();
   gameStartSound.play();
+  mallet.classList.add("show");
   return "game started";
 }
 

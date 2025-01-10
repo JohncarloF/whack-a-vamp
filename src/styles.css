@@ -37,7 +37,29 @@ h2 {
   background: url("../assets/hole.png") no-repeat center center;
   background-size: cover;
 }
+#start {
+  margin-top: 20px;
+}
 
+#score,
+#timer {
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+#mallet {
+  width: 50px;
+  height: 50px;
+  background: url("../assets/mallet.png") no-repeat center center;
+  background-size: contain;
+  position: absolute;
+  pointer-events: none;
+  display: none;
+}
+
+#mallet.show {
+  display: block;
+}
 .vamp {
   position: absolute;
   bottom: 0;
